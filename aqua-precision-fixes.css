@@ -1,0 +1,54 @@
+
+/* Aqua Arcade: narrow, targeted repairs based on 0.1 */
+#game-list .aa-card[hidden],
+#game-list .aa-card.filter-hidden { display:none !important; }
+
+/* Keep game-card actions aligned without changing the card's visual theme. */
+#game-list .aa-card .aa-btn {
+  width:100%;
+  max-width:100%;
+  margin-top:auto;
+  text-align:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  white-space:normal;
+  line-height:1.2;
+  min-height:44px;
+}
+#game-list .aa-card .aa-btn + .aa-link,
+#game-list .aa-card .aa-link {
+  align-self:center;
+  text-align:center;
+}
+
+/* All CTAs: centered content and safe text wrapping. */
+:where(.aa-btn,.aa-info-cta,.aa-shop-cta,.aa-read-button,.single-submit,.aa-buy-button) {
+  box-sizing:border-box;
+  text-align:center;
+  align-items:center;
+  justify-content:center;
+  line-height:1.25;
+  white-space:normal;
+  max-width:100%;
+}
+:where(.aa-info-cta,.aa-shop-cta,.aa-read-button,.single-submit) {
+  display:inline-flex;
+  min-height:44px;
+}
+.aa-chrome .aa-chrome-btn {
+  border:0;
+  padding:0;
+  font:inherit;
+  cursor:pointer;
+}
+.aa-chrome .aa-chrome-btn:focus-visible {
+  outline:3px solid var(--aa-lime-deep,#86e750);
+  outline-offset:2px;
+}
+@media (max-width:575.98px) {
+  :where(.aa-info-cta,.aa-shop-cta,.aa-read-button,.single-submit) { width:100%; }
+}
+
+/* Global Home icon: consistent bold house silhouette only. */
+.aa-home-icon { font-size: 1em; font-weight: 900; line-height: 1; vertical-align: -0.06em; }

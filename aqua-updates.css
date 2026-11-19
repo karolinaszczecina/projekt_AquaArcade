@@ -1,0 +1,28 @@
+/* Aqua Arcade — scoped visual refinements, 19 Nov 2026. */
+/* Header account and cart duplication is removed from HTML; responsive logo and hamburger remain. */
+.aa-sticky-nav { position:sticky!important; top:6px; z-index:1050; }
+/* Retain the exact two-card desktop layout, with matching heights. */
+@media (min-width:651px) {
+  .row.feature-grid { align-items:stretch; }
+  .row.feature-grid > #about, .row.feature-grid > #blog { min-height:220px; height:100%; align-self:stretch; }
+  .row.feature-grid > #blog { display:flex; flex-direction:column; }
+  #blog .aa-home-blog-story { margin-bottom:0; }
+  #blog .aa-home-blog-story .blog-image { max-height:155px; }
+}
+/* Sticky sidebar stays on-screen for long articles; it scrolls internally if taller than the viewport. */
+@media (min-width:992px) {
+  .single-world .single-sidebar-col.aa-article-sticky-aside { align-self:stretch; position:relative; min-width:0; }
+  .single-world .single-sidebar-col.aa-article-sticky-aside .single-sidebar-stack {
+    position:sticky!important; top:78px!important; max-height:calc(100vh - 92px)!important;
+    overflow-y:auto!important; overscroll-behavior:contain; scrollbar-width:thin;
+    scrollbar-color:var(--aa-edge) transparent; align-self:start;
+  }
+}
+@media (max-width:991.98px) {
+ .single-world .single-sidebar-col .single-sidebar-stack { position:static!important; max-height:none!important; overflow:visible!important; }
+}
+.single-socials .aa-article-share-copy { display:grid; place-items:center; width:40px; height:40px; border-radius:50%; color:#fff; background:radial-gradient(circle at 35% 25%,#69e7ff,var(--aa-blue) 70%); border:2px solid #fff; box-shadow:var(--aa-shadow); }
+.single-socials .aa-article-share-copy:focus-visible { outline:3px solid var(--aa-lime); outline-offset:3px; }
+.single-toc a { scroll-margin-top:90px; }
+.single-copy h2[id], #comments { scroll-margin-top:100px; }
+.aa-article-sticky-aside .single-sidebar-stack { isolation:auto; }

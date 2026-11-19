@@ -1,0 +1,26 @@
+/* Technical-only enhancements; do not alter the original visual geometry. */
+.aa-nav-actions{display:flex;align-items:center;gap:5px;margin-left:auto;padding-left:8px}
+.aa-nav-action{position:relative;display:grid;place-items:center;min-width:44px;min-height:44px;border-radius:50%;color:var(--aa-blue);font-size:1.25rem}
+.aa-nav-action:hover,.aa-nav-action:focus-visible{background:#e2f9ff}
+.aa-nav-count{position:absolute;top:0;right:0;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;font-size:.65rem;font-weight:800;background:var(--aa-lime);color:var(--aa-text)}
+.aa-home-rating{display:block;color:#e7ad27;font-size:.75rem;line-height:1.2;margin-top:4px}
+.aa-product-details-link{display:block;text-align:center;color:var(--aa-blue);font-weight:700;font-size:.78rem;padding:7px 2px;min-height:32px}
+.aa-product-details-link:hover{text-decoration:underline}
+:where(.aa-nav-action,.aa-product-details-link,.aa-shop-cta,.aa-ecommerce-main button,.aa-ecommerce-main a,.aa-ecommerce-main input,.aa-ecommerce-main select):focus-visible{outline:3px solid #70bd37;outline-offset:2px}
+@media(max-width:991.98px){.aa-nav-actions{margin:5px 0 0;padding:4px 0;border-top:1px solid #bee9fa}.aa-nav-action{border-radius:12px}}
+@media(max-width:767.98px){.aa-product-details-link{min-height:44px;display:grid;place-items:center}}
+
+/* Final shared alignment override: action icons remain at the far right on every page. */
+.aa-fixed-nav .aa-fixed-nav-links{width:100%;min-width:0}
+.aa-fixed-nav .aa-nav-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;margin-left:auto!important;flex:0 0 auto;padding:0 8px 0 14px}
+.aa-fixed-nav .aa-nav-action{width:42px;height:42px;min-width:42px;min-height:42px;flex:0 0 42px;border:1px solid rgba(255,255,255,.9);background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(181,239,255,.82));box-shadow:inset 0 1px 3px #fff,0 3px 8px rgba(0,113,198,.2);transition:transform .2s ease,box-shadow .2s ease}
+.aa-fixed-nav .aa-nav-action:hover,.aa-fixed-nav .aa-nav-action:focus-visible{transform:translateY(-2px);box-shadow:inset 0 1px 4px #fff,0 0 0 2px #fff,0 0 14px rgba(116,228,255,.9)}
+.aa-fixed-nav .aa-nav-count{top:-4px;right:-4px;width:auto;min-width:18px;height:18px;padding:0 4px;border:1px solid white}
+@media(min-width:992px){.aa-fixed-nav .aa-fixed-nav-links{flex-wrap:nowrap}}
+@media(max-width:991.98px){.aa-fixed-nav .aa-nav-actions{width:100%;margin:4px 0 2px auto!important;padding:7px 8px 4px;justify-content:flex-end;border-top:1px solid rgba(55,185,242,.28)}}
+
+/* Keep the sticky glass bar visible on narrow screens too. */
+.aa-sticky-nav{position:sticky!important;top:6px;z-index:1050;background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(207,246,255,.94))!important;box-shadow:0 5px 18px rgba(0,113,198,.16),inset 0 1px 0 rgba(255,255,255,.95)!important;backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2)}
+/* Keyboard skip link: hidden until focused, then clearly visible. */
+.aa-skip-link{position:absolute;top:8px;left:8px;z-index:2000;padding:10px 16px;border:2px solid #fff;border-radius:999px;background:#075b9c;color:#fff;font-weight:800;transform:translateY(-160%);transition:transform .2s ease}
+.aa-skip-link:focus{transform:translateY(0);outline:3px solid #86e750;outline-offset:3px}

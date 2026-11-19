@@ -1,0 +1,53 @@
+/* Aqua Arcade — restore original Frutiger Aero proportions after Bootstrap 5 resets. */
+:root { --bs-body-color:var(--aa-text); --bs-body-font-family:var(--font-body); }
+body { color:var(--aa-text); background:var(--aa-cyan); }
+.aa-window { max-width:1240px; width:min(100%,1240px); }
+.aa-inner, .aa-panel, .main-col, .side-col, main { min-width:0; }
+/* Preserve the exact two-column/sidebar, three features, four cards grids. */
+.site-grid.row { display:grid; grid-template-columns:minmax(210px,1fr) minmax(0,3fr); gap:14px; margin:0; }
+.row.row-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0; }
+.row.item-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:0; }
+.row.feature-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:14px 0 0; }
+.site-grid.row > *, .row.row-grid > *, .row.item-grid > *, .row.feature-grid > * { width:auto; max-width:none; min-width:0; padding:0; margin:0; flex:none; }
+.aa-card { min-height:0; }
+.aa-card img { max-width:100%; height:auto; }
+/* Exact desktop pill navigation with responsive Bootstrap collapse. */
+.aa-fixed-nav.navbar { display:block; padding:4px; overflow:visible; }
+.aa-fixed-nav .aa-fixed-toggler { display:none; border:1px solid var(--aa-edge); background:linear-gradient(#fff,#dff7ff); border-radius:100px; min-width:44px; min-height:44px; margin:2px; }
+.aa-fixed-nav .aa-fixed-collapse { display:block!important; }
+.aa-fixed-nav .aa-fixed-nav-links { display:flex; flex-direction:row; align-items:center; gap:4px; flex-wrap:wrap; }
+.aa-fixed-nav .aa-nav-link { display:inline-flex; min-height:44px; align-items:center; width:auto; }
+.aa-fixed-nav .nav-dropdown { position:relative; }
+.aa-fixed-nav .aa-dropdown { z-index:100; }
+.aa-fixed-nav a:focus-visible, .aa-fixed-nav button:focus-visible { outline:3px solid var(--aa-lime-deep); outline-offset:2px; }
+/* Touch-friendly targets where they do not interfere with visuals. */
+.aa-fixed-nav button, .aa-btn, .aa-filter { min-height:44px; }
+.aa-blog-featured img, .blog-image, .single-hero-figure img, .single-inline-image img { max-width:100%; }
+.table-responsive { max-width:100%; overflow-x:auto; }
+[hidden] { display:none!important; }
+@media(max-width:991.98px) {
+ .aa-fixed-nav .aa-fixed-toggler { display:inline-flex; align-items:center; justify-content:center; }
+ .aa-fixed-nav .aa-fixed-collapse { display:none!important; }
+ .aa-fixed-nav .aa-fixed-collapse.show { display:block!important; }
+ .aa-fixed-nav .aa-fixed-nav-links { flex-direction:column; align-items:stretch; padding:7px 3px; }
+ .aa-fixed-nav .aa-nav-link { display:flex; width:100%; border-radius:11px; }
+ .aa-fixed-nav .nav-dropdown { width:100%; }
+ .aa-fixed-nav .aa-dropdown { position:static; width:100%; box-shadow:none; }
+ .site-grid.row { grid-template-columns:1fr; }
+ .site-grid.row .side-col { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-content:start; }
+ .site-grid.row .side-col .search-form { grid-column:1/-1; }
+}
+@media(max-width:650px) {
+ .aa-world { padding:10px 6px 20px; }
+ .row.row-grid { grid-template-columns:1fr; }
+ .row.feature-grid { grid-template-columns:1fr; }
+ .row.item-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .site-grid.row .side-col { grid-template-columns:1fr; }
+ .aa-logo { font-size:clamp(1.7rem,7.5vw,2.3rem); }
+ .aa-tagline { font-size:.58rem; letter-spacing:.12em; }
+ .page-header { flex-wrap:wrap; }
+ .feature-grid .blog-story { flex-wrap:wrap; }
+ .feature-grid .blog-story .blog-image { width:100%; }
+}
+@media(max-width:380px) { .row.item-grid { grid-template-columns:1fr; } }
+@media(prefers-reduced-motion:reduce) { .aa-deco { animation:none; } }

@@ -1,0 +1,64 @@
+/* Aqua Arcade — targeted layout corrections, November 2026. */
+/* Bootstrap column widths must not be applied a second time inside CSS grids. */
+@media (min-width: 992px) {
+  .aa-article-grid.row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:0; }
+  .aa-article-grid.row > .aa-article-column { width:100%; max-width:none; min-width:0; padding:0; }
+  .aa-contact-faq-grid.row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; margin:0; }
+  .aa-contact-faq-grid.row > .aa-contact-faq { width:100%; max-width:none; min-width:0; padding:20px 22px; }
+  .aa-about-intro.row { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:24px; margin:0; }
+  .aa-about-intro.row > * { width:100%; max-width:none; min-width:0; padding:0; }
+  .aa-about-visual { min-height:275px; }
+  .aa-about-visual img { width:min(100%,380px); max-height:330px; }
+  .aa-about-feature.row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; margin:0; }
+  .aa-about-feature.row > * { width:100%; max-width:none; padding:0; }
+  .aa-contact-layout.row { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,.85fr); gap:16px; margin:0; }
+  .aa-contact-layout.row > * { width:100%; max-width:none; min-width:0; }
+  .aa-contact-form-row.row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:0; }
+  .aa-contact-form-row.row > * { width:100%; max-width:none; padding:0; }
+  .aa-info-card-grid.row { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0; }
+  .aa-info-card-grid.row > * { width:100%; max-width:none; min-width:0; }
+  /* Reduce vertical space created by the sidebar's tall promotional image. */
+  .side-col .sidebar-banner { height:clamp(115px,11vw,155px); aspect-ratio:auto; object-fit:cover; }
+  .side-col .sidebar-promo { padding:14px; }
+  .side-col .sidebar-promo .aa-brand-small { margin:10px 0 0; line-height:1.4; }
+}
+/* Two full-width article cards at tablet widths. */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .aa-article-grid.row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin:0; }
+  .aa-article-grid.row > .aa-article-column { width:100%; max-width:none; min-width:0; padding:0; }
+  .aa-contact-faq-grid.row {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; margin:0;}
+  .aa-contact-faq-grid.row > .aa-contact-faq {width:100%;max-width:none;padding:20px;}
+  .aa-info-card-grid.row {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:0;}
+  .aa-info-card-grid.row > * {width:100%;max-width:none;}
+}
+/* Give the three values cards and contact form real insets on phones. */
+@media (max-width: 767.98px) {
+  .aa-info-card-grid.row > .aa-info-card {padding:20px 18px; min-height:0;}
+  .aa-info-card-grid.row {gap:14px;}
+  .aa-info-card .aa-info-card-icon {margin-bottom:14px;}
+  .aa-info-card h3 {margin:0 0 10px;}
+  .aa-info-card p {margin:0;}
+  .aa-contact-layout.row > .aa-contact-form-panel {padding:20px 18px;}
+  .aa-contact-form-panel .aa-info-eyebrow {margin-bottom:12px;}
+  .aa-contact-form-panel .aa-heading {margin-bottom:14px;}
+  .aa-contact-form-panel > p:not(.aa-info-eyebrow) {margin-bottom:20px;}
+  .aa-contact-form-panel .aa-contact-field {margin:0 0 18px;gap:8px;}
+  .aa-contact-form-panel .aa-contact-form-row.row {gap:0;}
+  .aa-contact-form-panel .aa-contact-form-actions {padding-top:4px;}
+  .aa-contact-faq-grid.row > .aa-contact-faq {padding:18px;}
+  .aa-article-grid.row > .aa-article-column {width:100%;max-width:none;padding:0;}
+}
+@media(max-width:390px) {
+  .aa-contact-layout.row > .aa-contact-form-panel {padding:18px 15px;}
+  .aa-info-card-grid.row > .aa-info-card {padding:18px 16px;}
+}
+
+/* Product cards are fully interactive; luminous focus and Frutiger-style image hover */
+#game-list .aa-card-clickable{cursor:pointer;position:relative;transition:transform .22s ease,box-shadow .22s ease}
+#game-list .aa-card-clickable:hover,#game-list .aa-card-clickable:focus-visible{transform:translateY(-5px);box-shadow:0 0 0 2px rgba(255,255,255,.95),0 0 0 4px rgba(48,190,245,.55),0 12px 25px rgba(0,113,198,.24),0 0 22px rgba(116,228,255,.7);outline:none}
+#game-list .aa-card-clickable img,.aa-shop-card .aa-shop-photo img{transition:transform .35s ease,filter .35s ease}
+#game-list .aa-card-clickable:hover img,#game-list .aa-card-clickable:focus-visible img,.aa-shop-card:hover .aa-shop-photo img{transform:scale(1.045);filter:saturate(1.12) brightness(1.04)}
+#game-list .aa-card-clickable:after,.aa-shop-card:after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.42) 47%,transparent 62%);transform:translateX(-80%);transition:opacity .2s,transform .65s}
+#game-list .aa-card-clickable:hover:after,.aa-shop-card:hover:after{opacity:1;transform:translateX(80%)}
+.aa-lightbox-active{overflow:hidden}
+@media(prefers-reduced-motion:reduce){#game-list .aa-card-clickable,#game-list .aa-card-clickable img,.aa-shop-card .aa-shop-photo img{transition:none}}

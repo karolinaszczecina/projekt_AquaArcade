@@ -1,0 +1,17 @@
+/* Aqua Arcade — only homepage inner spacing adjustments. */
+/* Featured products: clear inset from the frame and evenly spaced cards. */
+#featured.aa-panel { padding: 18px; }
+#featured .item-grid.row { gap: 14px; }
+#featured .aa-card { padding: 10px; }
+/* Bottom feature panels: consistent internal breathing room. */
+.feature-grid.row > #about,
+.feature-grid.row > #blog { padding: 18px; }
+.feature-grid.row > #about { gap: 22px; }
+.feature-grid.row > #blog .blog-story { gap: 20px; }
+/* Maintain the compact layout on narrow screens. */
+@media (max-width: 650px) {
+  #featured.aa-panel { padding: 14px; }
+  #featured .item-grid.row { gap: 12px; }
+  .feature-grid.row > #about,
+  .feature-grid.row > #blog { padding: 15px; }
+}
